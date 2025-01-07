@@ -132,8 +132,71 @@ function convertToRomanNumerals(/* num */) {
  *  '10,5'    => 'one zero point five'
  *  '1950.2'  => 'one nine five zero point two'
  */
-function convertNumberToString(/* numberStr */) {
-  throw new Error('Not implemented');
+function convertNumberToString(numberStr) {
+  const vocabularyNumbers = [
+    'zero',
+    'one',
+    'two',
+    'three',
+    'four',
+    'five',
+    'six',
+    'seven',
+    'eight',
+    'nine',
+  ];
+  const vocabularySymbol = ['minus', 'point'];
+
+  let result = '';
+
+  for (let i = 0; i < numberStr.length; i += 1) {
+    switch (numberStr[i]) {
+      case '0':
+        result += vocabularyNumbers[0];
+        break;
+      case '1':
+        result += vocabularyNumbers[1];
+        break;
+      case '2':
+        result += vocabularyNumbers[2];
+        break;
+      case '3':
+        result += vocabularyNumbers[3];
+        break;
+      case '4':
+        result += vocabularyNumbers[4];
+        break;
+      case '5':
+        result += vocabularyNumbers[5];
+        break;
+      case '6':
+        result += vocabularyNumbers[6];
+        break;
+      case '7':
+        result += vocabularyNumbers[7];
+        break;
+      case '8':
+        result += vocabularyNumbers[8];
+        break;
+      case '9':
+        result += vocabularyNumbers[9];
+        break;
+      case '-':
+        result += vocabularySymbol[0];
+        break;
+      case '.':
+      case ',':
+        result += vocabularySymbol[1];
+        break;
+      default:
+        break;
+    }
+    if (i !== numberStr.length - 1) {
+      result += ' ';
+    }
+  }
+
+  return result;
 }
 
 /**
